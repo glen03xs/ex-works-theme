@@ -119,6 +119,8 @@ add_action( 'widgets_init', 'ex_works_widgets_init' );
 function ex_works_scripts() {
 	wp_enqueue_style( 'ex-works-style', get_stylesheet_uri() );
 
+	wp_enqueue_style( 'ex-works-bootstrap', get_stylesheet_uri() . '/css/bootstrap.css' );
+
 	wp_enqueue_style( 'ex-works-google-fonts', 'https://fonts.googleapis.com/css?family=Catamaran|Open+Sans' );
 
 	wp_enqueue_style( 'ex-works-font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
