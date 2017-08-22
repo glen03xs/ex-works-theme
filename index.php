@@ -13,6 +13,21 @@
  */
 
 get_header(); ?>
+   <!--PAGE TITLE AND BREADCRUMBS-->
+   <section>
+            <div class="page-header">
+                <div class="container">     
+                    <div class="page-title">
+                        <h2>Ex-works Blog</h2>
+                        <div class="red-accent"></div> <!--Red Accent -->
+                        <ul class="breadcrumbs">
+                            <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a></li>
+                            <li><a>Blog</a></li>
+                        </ul> <!--end breadcrumbs-->
+                    </div> <!--end page-title-->
+                </div> <!--end container-->
+            </div> <!--end pages-header-->
+        </section>
 <div class="container">
 <div class="row">
 	<div class="col-md-8 col-xs-12">
@@ -21,15 +36,6 @@ get_header(); ?>
 
 		<?php
 		if ( have_posts() ) :
-
-			if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-
-			<?php
-			endif;
-
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
 
@@ -40,15 +46,13 @@ get_header(); ?>
 				 */
 				get_template_part( 'template-parts/content', get_post_format() );
 
-			endwhile;
+			endwhile; ?>
 
-			the_posts_navigation();
+			<?php else : 
 
-		else :
+				get_template_part( 'template-parts/content', 'none' );
 
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif; ?>
+			endif; ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

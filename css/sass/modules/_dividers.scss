@@ -1,0 +1,20 @@
+ /* ---------------------------------------------------------------------------------------
+  Divider Styles
+ * --------------------------------------------------------------------------------------*/
+
+ hr {
+     display: block;
+     height: 1px;
+     margin: $general-margin 0;
+
+     border: none;
+
+     background-color: $color-hr;
+ }
+
+.red-line {
+    background: url(../img/red-hr.png) no-repeat;
+    height: 3px;
+    margin: 0;
+}
+
