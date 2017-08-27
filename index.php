@@ -28,37 +28,45 @@ get_header(); ?>
                 </div> <!--end container-->
             </div> <!--end pages-header-->
         </section>
-<div class="container">
-<div class="row">
-	<div class="col-md-8 col-xs-12">
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
 
-		<?php
-		if ( have_posts() ) :
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+<div class="blog-page">		
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<div id="primary" class="post-list">
+					<div class="post-item">
+						<main id="main" class="site-main">
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+						<?php
+						if ( have_posts() ) :
+							/* Start the Loop */
+							while ( have_posts() ) : the_post();
 
-			endwhile; ?>
+								/*
+								* Include the Post-Format-specific template for the content.
+								* If you want to override this in a child theme, then include a file
+								* called content-___.php (where ___ is the Post Format name) and that will be used instead.
+								*/
+								get_template_part( 'template-parts/content', get_post_format() );
 
-			<?php else : 
+							endwhile; ?>
 
-				get_template_part( 'template-parts/content', 'none' );
+							<?php else : 
 
-			endif; ?>
+								get_template_part( 'template-parts/content', 'none' );
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
-	</div>
-</div> <!-- end row -->
-</div> <!-- end container -->
+							endif; ?>
+					
+						</main><!-- #main -->
+					</div> <!--end post-item-->
+				</div><!-- #primary -->
+				<?php ex_works_numbered_pagination() ?>
+			</div> <!-- end col-md-8 -->
+			<div class="col-lg-4">
+					<?php get_sidebar(); ?>
+			</div> <!-- end col-lg-4 -->
+		</div> <!-- end row -->
+	</div> <!-- end container -->
+</div> <!--end blog-page--> 
 <?php
-get_sidebar();
 get_footer();

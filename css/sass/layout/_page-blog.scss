@@ -10,7 +10,7 @@ PAGE - BLOG
     }
 
     .post-list {
-        margin: 0 8px;
+        margin: 0 12px;
         
         .post-item {
             
@@ -39,55 +39,6 @@ PAGE - BLOG
             width: 680px;
         }
     }
-
-    .post-head {
-        display: inline-block;
-
-            .post-title {
-                float: left;
-                max-width: 620px;
-                padding: 0 16px 0;
-
-                h2 {
-                    line-height: 36px;
-
-                    margin: 4px 0 0 10px;
-                }
-
-                p {
-                    margin: 6px 0 0 14px;
-                }
-            }
-            
-            .post-date {
-                background: $color-link;
-                color: #fff;
-                float: left;
-                height: 90px;
-                margin-top: 8px;
-                padding: 8px;
-                text-align: center;
-                width: 96px;
-
-                p {
-                    font-size: 16px;
-                    margin: 4px 0 0 0;
-                    }
-
-            .day {
-                display: inline-block;
-                font-size: 34px;
-                padding-top: 12px;
-                }
-            
-            hr {
-                background: #fff;
-                margin: 0 auto;
-                height: 2px;
-                width: 68px;
-                }
-            }
-        }
 
     aside {
         margin: 0 8px;
@@ -232,4 +183,57 @@ PAGE - BLOG
         display: inline-block;
         margin-bottom: $baseline;
     }
+
+    .post-content {
+        margin: 0 12px;
+    }
 }
+
+.post-head {
+    display: inline-block;
+
+        .post-title {
+            float: left;
+            max-width: 600px;
+            padding: 0 12px 0;
+
+            h2 {
+                line-height: 36px;
+
+                margin: 18px 0 0 10px;
+            }
+
+            p {
+                margin: 6px 0 0 14px;
+            }
+        }
+        
+        .post-date {
+            background: $color-link;
+            color: #fff;
+            float: left;
+            height: 90px;
+            margin-top: 8px;
+            padding: 8px;
+            text-align: center;
+            width: 96px;
+
+            p {
+                font-size: 16px;
+                margin: 4px 0 0 0;
+                }
+
+        .day {
+            display: inline-block;
+            font-size: 34px;
+            padding-top: 12px;
+            }
+        
+        hr {
+            background: #fff;
+            margin: 0 auto;
+            height: 2px;
+            width: 68px;
+            }
+        }
+    }

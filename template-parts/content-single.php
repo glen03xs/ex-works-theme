@@ -8,47 +8,67 @@
  */
 
 ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'single-post'); ?>>
+	<div class="post-content">
+		<div class="post-head">
+			<?php get_template_part( 'template-parts/meta-date');?>
+			<div class="post-title">
+			<?php
+				if ( is_singular() ) :
+					the_title( '<h2 class="entry-title">', '</h2>' );
+				else :
+					the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+				endif; ?>
+				
+				<?php ex_works_posted_by() ?>
+			</div> <!--end post-title-->
+		</div> <!--end post-head-->
+		<div class="post-img">
+			<?php echo the_post_thumbnail('single-thumb'); ?>
+		</div> <!--end post-img-->
+		<div class="post-article">
+			<?php
+				the_content( sprintf(
+					wp_kses(
+						/* translators: %s: Name of current post. Only visible to screen readers */
+						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'ex-works' ),
+						array(
+							'span' => array(
+								'class' => array(),
+							),
+						)
+					),
+					get_the_title()
+				) );
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h2 class="entry-title">', '</h2>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+				wp_link_pages( array(
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ex-works' ),
+					'after'  => '</div>',
+				) );
+			?>
+		</div><!--end post-article-->
+		
 
-		if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php ex_works_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php
-		endif; ?>
-	</header><!-- .entry-header -->
 
-	<div class="entry-content">
-		<?php
-			the_content( sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'ex-works' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				get_the_title()
-			) );
 
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ex-works' ),
-				'after'  => '</div>',
-			) );
-		?>
-	</div><!-- .entry-content -->
+		<div class="post-footer">
+			<?php get_template_part( 'template-parts/post-sharing');?>
+			<div class="author-thumb">
+				<a href="#">
+					<img src="" alt="">
+				</a>
+			</div><!--end author-thumb-->
+			<div class="author-info">
+				
+			</div> <!--end author-info-->
 
-	<footer class="entry-footer">
-		<?php ex_works_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+		</div><!--end post-footer-->
+	</div> <!--end post-content-->
+</article> <!--single-post-->
+
+
+
+
+
+
+

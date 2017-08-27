@@ -2067,7 +2067,7 @@ PAGE - BLOG
   .blog-page ul {
     list-style: none; }
   .blog-page .post-list {
-    margin: 0 8px; }
+    margin: 0 12px; }
     .blog-page .post-list .post-item img {
       width: 100%; }
     .blog-page .post-list .post-content {
@@ -2081,38 +2081,6 @@ PAGE - BLOG
       background: #aaaaaa;
       margin: 46px auto 54px;
       width: 680px; }
-  .blog-page .post-head {
-    display: inline-block; }
-    .blog-page .post-head .post-title {
-      float: left;
-      max-width: 620px;
-      padding: 0 16px 0; }
-      .blog-page .post-head .post-title h2 {
-        line-height: 36px;
-        margin: 4px 0 0 10px; }
-      .blog-page .post-head .post-title p {
-        margin: 6px 0 0 14px; }
-    .blog-page .post-head .post-date {
-      background: #183650;
-      color: #fff;
-      float: left;
-      height: 90px;
-      margin-top: 8px;
-      padding: 8px;
-      text-align: center;
-      width: 96px; }
-      .blog-page .post-head .post-date p {
-        font-size: 16px;
-        margin: 4px 0 0 0; }
-      .blog-page .post-head .post-date .day {
-        display: inline-block;
-        font-size: 34px;
-        padding-top: 12px; }
-      .blog-page .post-head .post-date hr {
-        background: #fff;
-        margin: 0 auto;
-        height: 2px;
-        width: 68px; }
   .blog-page aside {
     margin: 0 8px; }
     .blog-page aside .top-post-list h4 {
@@ -2186,6 +2154,41 @@ PAGE - BLOG
 .single-post .post-head {
   display: inline-block;
   margin-bottom: 21px; }
+.single-post .post-content {
+  margin: 0 12px; }
+
+.post-head {
+  display: inline-block; }
+  .post-head .post-title {
+    float: left;
+    max-width: 600px;
+    padding: 0 12px 0; }
+    .post-head .post-title h2 {
+      line-height: 36px;
+      margin: 18px 0 0 10px; }
+    .post-head .post-title p {
+      margin: 6px 0 0 14px; }
+  .post-head .post-date {
+    background: #183650;
+    color: #fff;
+    float: left;
+    height: 90px;
+    margin-top: 8px;
+    padding: 8px;
+    text-align: center;
+    width: 96px; }
+    .post-head .post-date p {
+      font-size: 16px;
+      margin: 4px 0 0 0; }
+    .post-head .post-date .day {
+      display: inline-block;
+      font-size: 34px;
+      padding-top: 12px; }
+    .post-head .post-date hr {
+      background: #fff;
+      margin: 0 auto;
+      height: 2px;
+      width: 68px; }
 
 /* ---------------------------------------------------------------------------------------
 PAGES SERVICES

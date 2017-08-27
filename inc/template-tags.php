@@ -41,6 +41,52 @@ if ( ! function_exists( 'ex_works_posted_on' ) ) :
 	}
 endif;
 
+/****************************************
+Custom  - posted_by()
+****************************************/
+
+if (! function_exists( 'ex_works_posted_by' ) ) {
+	function ex_works_posted_by() {
+		if (get_post_type() === 'post' ) {
+			echo '<span class="author"> <p>';
+			_e( 'by', 'ex_works');
+			printf( '<a href="%1$s" rel="author"> %2$s</a>', esc_url( get_author_posts_url(get_the_author_meta( 'ID'))), get_the_author());
+			echo '</p> </span>';
+		}
+	}
+}
+
+/****************************************
+Custom  - Pagination
+****************************************/
+
+if (! function_exists( 'ex_works_numbered_pagination' ) ) {
+	function ex_works_numbered_pagination() {
+		$args = array(
+			'prev_next' => false,
+			'type' => 'array'
+		);
+
+		echo '<div class="pagination">';
+		$pagination = paginate_links( $args );
+
+		if ( is_array( $pagination ) ) {
+			echo '<ul>';
+			foreach ( $pagination as $page) {
+				if ( strpos( $page, 'current') ) {
+					echo '<li class="active"><a>' . $page . '</a></li>';
+				} else {
+					echo '<li>' . $page . '</li>';
+				}
+			}
+			echo '</ul>';
+		}
+
+		echo '</div> <!--end pagination-->';
+	}
+}
+
+
 if ( ! function_exists( 'ex_works_entry_footer' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.

@@ -41,6 +41,8 @@ if ( ! function_exists( 'ex_works_setup' ) ) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
+		add_image_size('single-thumb', 726, 364, true );
+		add_image_size('index-thumb', 726, 264, true );
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
@@ -95,23 +97,7 @@ function ex_works_content_width() {
 }
 add_action( 'after_setup_theme', 'ex_works_content_width', 0 );
 
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function ex_works_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'ex-works' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'ex-works' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-}
-add_action( 'widgets_init', 'ex_works_widgets_init' );
+
 
 /**
  * Enqueue scripts and styles.
@@ -153,6 +139,12 @@ require get_template_directory() . '/inc/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
+
+/**
+ * Implement the Widget Layout
+ */
+ require get_template_directory() . '/inc/widgets.php';
+ 
 
 /**
  * Customizer additions.

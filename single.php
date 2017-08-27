@@ -35,9 +35,8 @@ get_header(); ?>
 						<?php
 						while ( have_posts() ) : the_post();
 
-							get_template_part( 'template-parts/content', 'single', get_post_type() );
+							get_template_part( 'template-parts/content', get_post_type() );
 
-							the_post_navigation();
 
 							// If comments are open or we have at least one comment, load up the comment template.
 							if ( comments_open() || get_comments_number() ) :
@@ -48,10 +47,9 @@ get_header(); ?>
 						?>
 
 					</div> <!--single-post-->
-					<hr>
 				</div><!--end col-lg-8-->
 				<div class="col-lg-4">
-				<?php get_sidebar(); ?>
+					<?php get_sidebar(); ?>
 				</div> <!-- end col-lg-4 -->
 			</div> <!--end row-->
 		</div> <!--end container-->
